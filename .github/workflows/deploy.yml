@@ -10,9 +10,12 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: Load & cache dependencies
+        id: cache-deps-step
         uses: ./.github/actions/cached-deps # use custom action by providing path of the action, relative to the root folder
         with:
           caching: 'false'  
+      - name: Output information
+        run: echo "cached used? ${{ steps.cache-deps-step.outputs.used-cache }}"
       - name: Lint code
         run: npm run lint
   test:
