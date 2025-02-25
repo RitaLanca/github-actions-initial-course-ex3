@@ -1,0 +1,6 @@
+name: 'Deploy to AWS S3'
+description: 'Deploy a static website via AWS S3'
+runs:
+  # this tells this is a javascript action, because we are using a javascript runtime
+  using: 'node20' # see the supported version in Github Actions> create actions > Metadata syntax
+  main: 'main.js' # name of the file that will be executed
